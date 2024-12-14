@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
 
+import pessoa.Homem;
+import pessoa.Mulher;
+import pessoa.Pessoa;
 import pessoa.PessoaIMC;
 import validacao.ValidaCPF;
 
@@ -35,12 +38,15 @@ public class MinhaListaOrdenavel {
         }
     };
 
-    public static Comparator<PessoaIMC> alturaComparator = new Comparator<PessoaIMC>(){
-        public int compare (PessoaIMC p1, PessoaIMC p2){ 
-            double pf1, pf2;
-            pf1 = (double) p2.getAltura();
-            pf2 = (double) p1.getAltura();
-            return Double.valueOf(pf1).compareTo(pf2);
+    public static Comparator<Pessoa> generoComparator = new Comparator<>() {
+        public int compare(Pessoa p1, Pessoa p2) {
+            if (p1 instanceof Mulher || p2 instanceof Homem) {
+                return 1;
+            }
+            if (p1 instanceof Homem || p2 instanceof Mulher) {
+                return -1;
+            }
+            return 0;
         }
     };
 
@@ -100,10 +106,10 @@ public class MinhaListaOrdenavel {
                  Collections.sort(pessoaList,MinhaListaOrdenavel.pesoComparator.reversed());
                 break;
             case 3:
-                 Collections.sort(pessoaList,MinhaListaOrdenavel.alturaComparator);
+                 Collections.sort(pessoaList,MinhaListaOrdenavel.generoComparator);
                 break;
             case 4:
-                 Collections.sort(pessoaList,MinhaListaOrdenavel.alturaComparator.reversed());
+                 Collections.sort(pessoaList,MinhaListaOrdenavel.generoComparator.reversed());
                 break;
             case 5:
                  Collections.sort(pessoaList,MinhaListaOrdenavel.nomeComparator);

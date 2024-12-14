@@ -8,8 +8,6 @@ public class Pessoa {
     private String sobreNome;
     private GregorianCalendar dataNasc;
     private String numCPF;
-    // private float peso;
-    // private float altura;
 
     public Pessoa(String nome, String sobreNome, GregorianCalendar dataNasc) {
         this.nome = nome;
@@ -22,8 +20,6 @@ public class Pessoa {
         this.sobreNome = sobreNome;
         this.dataNasc = dataNasc;
         this.numCPF = numCPF;
-    //     this.peso = peso;
-    //     this.altura = altura;
     }
 
     public Pessoa(String string, String string2, int i, int j, int k) {
@@ -61,22 +57,6 @@ public class Pessoa {
         this.numCPF = numCPF;
     }
 
-    // public float getPeso() {
-    //     return peso;
-    // }
-
-    // public void setPeso(float peso) {
-    //     this.peso = peso;
-    // }
-
-    // public float getAltura() {
-    //     return altura;
-    // }
-
-    // public void setAltura(float altura) {
-    //     this.altura = altura;
-    // }
-
     public int calcularIdade() {
         Calendar hoje = Calendar.getInstance();
         int anoAtual = hoje.get(Calendar.YEAR);
@@ -102,9 +82,6 @@ public class Pessoa {
                 ", sobreNome='" + sobreNome + '\'' +
                 ", Idade =" + calcularIdade() +
                 ", numCPF=" + numCPF 
-                // ", peso=" + peso +
-                // ", altura=" + altura +
-                // '}'
                 ;
     }
 }
